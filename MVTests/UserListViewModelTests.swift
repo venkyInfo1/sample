@@ -16,8 +16,10 @@ class UserListViewModelTests: XCTestCase {
         let mockNetwork = MockNetwork(data: data, error: nil)
 
         let viewModel = UserListViewModel(delegate: nil, userService: mockNetwork)
-        viewModel.userList = mockNetwork.dataToReturn
-        XCTAssertEqual(viewModel.userList.count, 1)
+        mockNetwork.request(url: "urlstr") { users, errorstr in
+            viewModel.userList = users
+            XCTAssertEqual(viewModel.userList.count, 1)
+        }
     }
 }
 

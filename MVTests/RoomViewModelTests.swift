@@ -16,8 +16,11 @@ class RoomViewModelTests: XCTestCase {
         let mockNetwork = MockNetworkRoom(data: data, error: nil)
 
         let viewModel = RoomsViewModel(delegate: nil, roomNwService: mockNetwork)
-        viewModel.rooms = mockNetwork.dataToReturn
-        XCTAssertEqual(viewModel.rooms.count, 1)
+        mockNetwork.request(url: "url") { rooms, errorStr in
+            viewModel.rooms = rooms
+            XCTAssertEqual(viewModel.rooms.count, 1)
+        }
+        
     }
 }
 

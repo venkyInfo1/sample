@@ -19,7 +19,8 @@ class RoomNetworkServiceTests: XCTestCase {
         self.roomNwService = RoomNetworkService()
     }
     
-    func getUserDataTests() {
+    func testGetUserDataTests() {
+        self.setUpData()
         let expected = XCTestExpectation(description: "load rooms from room Service")
         roomNwService.getData(URLConstants.shared.roomsUrl) { rooms, errorStr in
              XCTAssertNil(errorStr)
@@ -28,7 +29,8 @@ class RoomNetworkServiceTests: XCTestCase {
         }
     }
     
-    func checkUserDataNil() {
+    func testCheckUserDataNil() {
+        self.setUpData()
         let expected = XCTestExpectation(description: "check room data nil or not")
         roomNwService.getData("https://userdetails.com") { rooms, errorStr in
              XCTAssertNotNil(errorStr)

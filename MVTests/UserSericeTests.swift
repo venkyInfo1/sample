@@ -19,7 +19,8 @@ class UserSericeTests: XCTestCase {
         self.userService = UserService()
     }
     
-    func getUserDataTests() {
+    func testGetUserDataTests() {
+        setUpData()
         let expected = XCTestExpectation(description: "load user details from Use Service")
         userService.getData(URLConstants.shared.usersListUrl) { userDdata, errorStr in
              XCTAssertNil(errorStr)
@@ -28,7 +29,8 @@ class UserSericeTests: XCTestCase {
         }
     }
     
-    func checkUserDataNil() {
+    func testCheckUserDataNil() {
+        setUpData()
         let expected = XCTestExpectation(description: "check user data nil or not")
         userService.getData("https://userdetails.com") { userDdata, errorStr in
              XCTAssertNotNil(errorStr)
