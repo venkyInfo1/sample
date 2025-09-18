@@ -12,5 +12,6 @@ class URLConstants {
     // MARK: - Get URL String
     var usersListUrl = baseURL + "people"
     var roomsUrl = baseURL + "rooms"
+    var testURL = "testURL"
     private init() {}
 }
