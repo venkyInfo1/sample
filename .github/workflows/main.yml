@@ -42,6 +42,7 @@ jobs:
           channel-id: "${{ vars.SLACK_DEV_CHANNEL_ID }}"
           payload: |
             {
+              "text": "Build finished ✅",
               "blocks": [
                 {
                   "type": "section",
