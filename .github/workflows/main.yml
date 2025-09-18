@@ -61,7 +61,7 @@ jobs:
                       "fields": [
                         {
                           "type": "mrkdwn",
-                          "text": "*App:*\nsmartcast-ios"
+                          "text": "*App:*\nSample"
                         },
                         {
                           "type": "mrkdwn",
