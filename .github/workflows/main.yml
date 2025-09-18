@@ -20,12 +20,6 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.READ_GH_ACCESS_TOKEN }}@github.com/".insteadOf "git@github.com:"
           git config --global -l
-          
-      - name: Build Setup
-        id: build-setup
-        uses: ./.github/actions/setup-xcode-pods-spm
-        with:
-          XCODE_VERSION: ${{ vars.XCODE_VERSION }}
         
       - name: Notify Status in Slack
         if: ${{ success() || failure() }}
